@@ -25,7 +25,7 @@ class ScrollList extends React.Component<Props, State> {
   componentWillUnmount() {
     clearInterval(this.timer);
   }
-  //1：在render之前调用，state已更新
+  // 1：在render之前调用，state已更新
   // 2：典型场景：获取render之前的dom状态
   getSnapshotBeforeUpdate(): number {
     return this.wrapper.current!.scrollHeight; //内容高度

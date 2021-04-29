@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
  * 高阶函数 就是函数可以作为方法的参数和返回值
  * function(oldFn){return newFn}
  * 高阶组件 组件可以作为函数的参数和返回值
+ * 普通组件是把 props 转换为 ui， 高阶组件是把组件转换为另一个组件
  */
 //是一个函数，需要接收一个老组件，返回一个新组件,把逻辑写在新组件
 function logger(OldComponent) {
