@@ -40,4 +40,4 @@ const ref = React.createRef();
 
 ReactDOM.render(<LogProps ref={ref} />, document.getElementById('root'));
 
-console.log(ref);
+console.log(ref); // FancyButton
