@@ -41,3 +41,7 @@ const ref = React.createRef();
 ReactDOM.render(<LogProps ref={ref} />, document.getElementById('root'));
 
 console.log(ref); // FancyButton
+
+// 1.给最终生成的组件传一个ref，也就是传递给了forwardRef,
+// 2.forwardRef中又把ref传递给了高阶组件
+// 2.高阶组件中把ref传递给了源组件
