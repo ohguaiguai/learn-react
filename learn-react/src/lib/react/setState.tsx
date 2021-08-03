@@ -10,6 +10,7 @@ function defer(fn) {
 }
 
 export function enqueueSetState(stateChange, component) {
+  // 上一次flush执行完之后，也就是setStateQueue队列被清空后就开始下一轮flush
   if (setStateQueue.length === 0) {
     defer(flush);
   }
@@ -47,7 +48,7 @@ function flush() {
     component.prevState = component.state;
   }
 
-  // while ((component = renderQueue.shift())) {
-  //   renderComponent(component);
-  // }
+  while ((component = renderQueue.shift())) {
+    renderComponent(component);
+  }
 }
