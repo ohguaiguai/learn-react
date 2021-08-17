@@ -5,10 +5,10 @@
 compiler代表整个编译对象
 compilation代表一次编译
  */
-let webpack = require("webpack");
-let path = require("path");
-let requireFromString = require("require-from-string");
-let MFS = require("memory-fs"); //内存版的fs模块
+let webpack = require('webpack');
+let path = require('path');
+let requireFromString = require('require-from-string');
+let MFS = require('memory-fs'); //内存版的fs模块
 let mfs = new MFS();
 // 类
 class SkeletonWebpackPlugin {
@@ -17,11 +17,11 @@ class SkeletonWebpackPlugin {
   }
   apply(compiler) {
     let { webpackConfig } = this.options;
-    compiler.hooks.compilation.tap("SkeletonWebpackPlugin", (compilation) => {
+    compiler.hooks.compilation.tap('SkeletonWebpackPlugin', (compilation) => {
       //我们在要这监听html处理事件
       //就是一发布 观察者
       compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync(
-        "SkeletonWebpackPlugin",
+        'SkeletonWebpackPlugin',
         (htmlPluginData, callback) => {
           // 我在这个地方要开启一次新的webpack编译，得到编译的结果
           let childCompiler = webpack(webpackConfig);
@@ -33,7 +33,7 @@ class SkeletonWebpackPlugin {
           childCompiler.outputFileSystem = mfs;
           childCompiler.run((err, stat) => {
             //以同步的方式读取文件内容
-            let skeletonJS = mfs.readFileSync(outputPath, "utf8");
+            let skeletonJS = mfs.readFileSync(outputPath, 'utf8');
             let result = requireFromString(skeletonJS);
             let svgHtml = result.default;
             htmlPluginData.html = htmlPluginData.html.replace(
