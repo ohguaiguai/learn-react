@@ -36,6 +36,7 @@ class SkeletonWebpackPlugin {
             let skeletonJS = mfs.readFileSync(outputPath, 'utf8');
             let result = requireFromString(skeletonJS);
             let svgHtml = result.default;
+            // 把html中的root替换掉
             htmlPluginData.html = htmlPluginData.html.replace(
               '<div id="root"></div>',
               `<div id="root">${svgHtml}</div>`

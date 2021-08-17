@@ -11,7 +11,7 @@ const Row = ({ index, style }) => (
       ...style,
       backgroundColor: getRandomColor(),
       lineHeight: '30px',
-      textAlign: 'center',
+      textAlign: 'center'
     }}
   >
     Row{index + 1}
@@ -22,7 +22,10 @@ const Container = () => (
     {Row}
   </List>
 );
-ReactDOM.render(<Container />, document.getElementById('root'));
+setTimeout(() => {
+  ReactDOM.render(<Container />, document.getElementById('root'));
+}, 2000);
+
 function getRandomColor() {
   let rand = Math.floor(Math.random() * 0xffffff)
     .toString(16)

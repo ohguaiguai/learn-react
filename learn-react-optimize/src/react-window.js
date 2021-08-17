@@ -15,6 +15,7 @@ export class FixedSizeList extends React.Component {
   componentDidMount() {
     this.containerRef.current.addEventListener('scroll', () => {
       let scrollTop = this.containerRef.current.scrollTop;
+      // 关键点
       let start = Math.floor(scrollTop / this.props.itemSize); // 计算开始索引
       this.setState({ start });
     });
@@ -30,7 +31,7 @@ export class FixedSizeList extends React.Component {
       width: '100%',
       position: 'absolute',
       left: 0,
-      top: 0,
+      top: 0
     };
     for (let i = this.state.start; i < this.state.start + pageSize; i++) {
       let style = { ...itemStyle, top: i * itemSize };
@@ -41,7 +42,7 @@ export class FixedSizeList extends React.Component {
       width,
       height,
       position: 'relative',
-      overflow: 'auto',
+      overflow: 'auto'
     };
     return (
       <div style={containerStyle} ref={this.containerRef}>
