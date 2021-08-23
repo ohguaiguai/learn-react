@@ -39,7 +39,7 @@ function createContext<T>(defaultValue: T) {
   }
   return {
     Provider,
-    Consumer,
+    Consumer
   };
 }
 const ColorContext = createContext<ContextValue>(null);
@@ -119,7 +119,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
   render() {
     let contextValue: ContextValue = {
       color: this.state.color,
-      changeColor: this.changeColor,
+      changeColor: this.changeColor
     };
     return (
       <ColorContext.Provider value={contextValue}>
@@ -127,7 +127,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
           style={{
             border: `5px solid ${this.state.color}`,
             padding: 5,
-            width: 200,
+            width: 200
           }}
         >
           Panel
