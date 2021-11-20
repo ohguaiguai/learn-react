@@ -1,46 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-interface Props {
-    render: (value: State) => React.ReactNode
-}
-interface State {
-    x: number;
-    y: number;
-}
-type PropsFromState = State;
-class MouseTracker extends Component<Props, State>{
-    constructor(props: Props) {
-        super(props);
-        this.state = { x: 0, y: 0 };
-    }
-    handleMouseMove = (event: React.MouseEvent) => {
-        this.setState({
-            x: event.clientX, y: event.clientY
-        });
-    }
-    render() {
-        return (
-            <div onMouseMove={this.handleMouseMove} style={{ border: '1px solid red' }}>
-                {this.props.render(this.state)}
-            </div>
-        )
-    }
-}
-//这是一个普通函数组件
-const MyComponent = (value: PropsFromState) => (
-    <div>
-        <p>请现在移动鼠标</p>
-        <p>当前鼠标的位置x:{value.x},y:{value.y}</p>
-    </div>
-)
-function withMouseTracker(OldComponent: React.FC<PropsFromState>) {
-    return (props: {}) => {
-        return (
-            <MouseTracker render={
-                mouseProps => <OldComponent {...props} {...mouseProps} />
-            } />
-        )
-    }
-}
-const WithMouseTrackerMyComponent = withMouseTracker(MyComponent);
-ReactDOM.render(< WithMouseTrackerMyComponent />, document.getElementById('root'));
+// import './hoc/1.getSnapshotBeforeUpdate';
+// import './hoc/5.hoc-属性代理';
+// import './hoc/8.refs-指向类组件实例';
+// import './advance/9.refs-回调refs-指向dom';
+// import './advance/10.refs-回调refs-在组件间传递回调refs';
+// import './advance/12.refs-forwardRef-hoc中转发refs到类组件实例';
+// import './advance/14.hoc-反向继承';
+import './advance/13.refs-forwardRef-调用子函数组件内的方法';

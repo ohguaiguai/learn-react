@@ -10,22 +10,24 @@ let root: HTMLElement | null = document.getElementById('root');
  * 1. 收集props对象
  * 2. 把属性对象传入函数并返回React元素
  * 3. 把React元素渲染到页面上
- * 
+ *
  * 类组件
  */
 interface Props {
-    name: string
+  name: string;
 }
 
-const Welcome: React.FunctionComponent<Props> = (props: Props): React.ReactElement => {
-    return <h1>hello {props.name}</h1>;
-}
+const Welcome: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
+  return <h1>hello {props.name}</h1>;
+};
 //props={name:'zhufeng'}
 
 class Welcome2 extends React.Component<Props> {
-    render(): React.ReactElement {
-        return <h1>hello {this.props.name}</h1>;
-    }
+  render(): React.ReactElement {
+    return <h1>hello {this.props.name}</h1>;
+  }
 }
 let Welcome3: React.ComponentClass<Props> = Welcome2;
 /**
@@ -35,7 +37,7 @@ let Welcome3: React.ComponentClass<Props> = Welcome2;
  * 3. 调用Welcome2实例的render方法，获得返回的React元素
  * 4. 把返回的React元素渲染到界面上就可以了
  */
-ReactDOM.render(<Welcome3 name="zhufeng" />, root);
+ReactDOM.render(<Welcome3 name='zhufeng' />, root);
 /**
  * 1.React元素可以是DOM标签，也可以是用户自定义组件
  * 2. DOM标签首字母小写的，自定义组件首字母大写

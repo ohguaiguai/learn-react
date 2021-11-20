@@ -6,32 +6,32 @@ import ReactDOM from 'react-dom';
  * 2. ref的值可以是一个函数
  * 3. React.createRef() 现在或者 以后只推荐 第三种
  */
-interface Props { }
+interface Props {}
 class Sum extends React.Component {
-    a: React.RefObject<HTMLInputElement>
-    b: React.RefObject<HTMLInputElement>
-    c: React.RefObject<HTMLInputElement>
-    constructor(props: Props) {
-        super(props);
-        this.a = React.createRef();//{current:null}
-        this.b = React.createRef();//{current:null}
-        this.c = React.createRef();//{current:null}
-    }
-    add = () => {
-        let a = this.a.current!.value;
-        let b = this.b.current!.value;
-        this.c.current!.value = a + b;
-    }
-    render() {
-        return (
-            <>
-                <input ref={this.a} />+
-                <input ref={this.b} />
-                <button onClick={this.add}>=</button>
-                <input ref={this.c} />
-            </>
-        )
-    }
+  a: React.RefObject<HTMLInputElement>;
+  b: React.RefObject<HTMLInputElement>;
+  c: React.RefObject<HTMLInputElement>;
+  constructor(props: Props) {
+    super(props);
+    this.a = React.createRef(); //{current:null}
+    this.b = React.createRef(); //{current:null}
+    this.c = React.createRef(); //{current:null}
+  }
+  add = () => {
+    let a = this.a.current!.value;
+    let b = this.b.current!.value;
+    this.c.current!.value = a + b;
+  };
+  render() {
+    return (
+      <>
+        <input ref={this.a} />+
+        <input ref={this.b} />
+        <button onClick={this.add}>=</button>
+        <input ref={this.c} />
+      </>
+    );
+  }
 }
 /* class Sum extends React.Component {
     a: HTMLInputElement
