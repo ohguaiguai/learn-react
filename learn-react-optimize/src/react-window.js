@@ -1,10 +1,3 @@
-/**
- * @file: description
- * @author: zhangxing
- * @Date: 2019-12-03 16:37:24
- * @LastEditors: zhangxing
- * @LastEditTime: 2020-07-10 10:39:45
- */
 import React from 'react';
 export class FixedSizeList extends React.Component {
   constructor() {
