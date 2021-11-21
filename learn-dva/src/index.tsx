@@ -8,13 +8,13 @@ interface Counter1State {
   number: number;
 }
 type Counter1Props = Counter1State & {
-  dispatch: Dispatch;
+  dispatch: Dispatch<any>;
 };
 interface Counter2State {
   number: number;
 }
 type Counter2Props = Counter2State & {
-  dispatch: Dispatch;
+  dispatch: Dispatch<any>;
 };
 type CombinedState = {
   counter1: Counter1State;
@@ -60,8 +60,8 @@ app.model({
   //在系统启时候会把所有的订阅函都执行一次。另外只执行一次
   subscriptions: {
     changeTitle({ history, dispatch }) {
-      console.log('changeTitle');
       history.listen(({ pathname }) => {
+        console.log('changeTitle');
         document.title = pathname;
       });
     },
@@ -112,6 +112,7 @@ const Counter2 = (props: Counter2Props) => (
 const mapStateToProps2 = (state: CombinedState): Counter2State =>
   state.counter2;
 const ConnectedCounter2 = connect(mapStateToProps2)(Counter2);
+
 //Router react-router库里的Router
 app.router((api?: RouterAPI) => {
   let { history, app } = api!;
