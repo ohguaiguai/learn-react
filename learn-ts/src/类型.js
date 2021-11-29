@@ -9,7 +9,7 @@
 var married = false;
 // Cannot redeclare block-scoped variable 'name'.ts(2451)，已经有window.name了
 //  let name: string = 'zhangxing';
-// tuple 元组类型，表示一个已知数量和类型的数组；
+// tuple 元组类型，表示一个已知数量和类型的数组； 数组类型唯一，数量不确定
 var zhangxing = ['zhangxing', 5];
 // 枚举类型
 var Gender;
@@ -27,10 +27,10 @@ console.log(Gender); // {'0': 'MALE', '1': 'FEMALE', 'MALE': 0, 'FEMALE': 1}
 // null undefined 是其他类型的子类型，可以赋值给其他类型
 var x;
 x = 1;
-x = undefined; // 需要开启 "strictNullChecks": false,
+x = undefined; // 需要开启 "strictNullChecks": false,      
 var y;
 // void 空类型
-// undefined 可以赋值给void； "strictNullChecks": true时null也可以赋值给void
+// undefined 可以赋值给void； "strictNullChecks": true时null也可以赋值给void   
 // never 永远不会出现的值; 是null和undefined的子类型
 // 1. 作为不会返回函数的返回值类型。
 // let ret: never = Error('hello');

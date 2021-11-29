@@ -8,7 +8,7 @@
  */
 /**
  * 类
- * TS声明一个类的时候，其实得到了两个类型（类型声明空间）, 一个变量（变量声明空间）
+ * TS声明一个类的时候，其实得到了两个类型
  * 1. 实例的类型
  * 2. 类本身构造函数的类型
  * "strictPropertyInitialization": true, 在类中定义属性的时候必须初始化一个值
@@ -22,7 +22,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var Person = /** @class */ (function () {
     function Person() {
     }
-    Person.prototype.getName = function () { };
+    Person.prototype.getName = function () {
+    };
     return Person;
 }());
 // 存取器
@@ -47,8 +48,8 @@ var user = new User();
 console.log(user);
 // readonly 和 const
 // readonly是编译时检查，const是运行时检查
-// public: 可以被自己类本身、子类和其他(指的是类的 '{}'外面)访问
-// protected： 本身和子类能够访问，其他不能访问
+// public: 可以被自己类本身、子类和其他(指的是类外面)访问
+// protected： 本身和子类能够访问，其他不能访问 
 // private：只有本身可以访问，子类和其他都不能访问
 // 静态属性: static
 // 静态方法：static
