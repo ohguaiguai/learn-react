@@ -48,14 +48,14 @@ app.model({
     },
     decrement(state) {
       return { number: state.number - 1 };
-    },
+    }
   },
   effects: {
     *asyncIncrement(action, { call, put }) {
       //redux-saga/effects
       yield call(delay, 1000);
       yield put({ type: 'increment' });
-    },
+    }
   },
   //在系统启时候会把所有的订阅函都执行一次。另外只执行一次
   subscriptions: {
@@ -64,8 +64,8 @@ app.model({
         console.log('changeTitle');
         document.title = pathname;
       });
-    },
-  },
+    }
+  }
 });
 app.model({
   namespace: 'counter2',
@@ -76,8 +76,8 @@ app.model({
     },
     decrement(state) {
       return { number: state.number - 1 };
-    },
-  },
+    }
+  }
 });
 
 const Counter1 = (props: Counter1Props) => (
@@ -119,10 +119,10 @@ app.router((api?: RouterAPI) => {
   return (
     <Router history={history}>
       <>
-        <Link to='/counter1'>counter1</Link>
-        <Link to='/counter2'>counter2</Link>
-        <Route path='/counter1' component={ConnectedCounter1} />
-        <Route path='/counter2' component={ConnectedCounter2} />
+        <Link to="/counter1">counter1</Link>
+        <Link to="/counter2">counter2</Link>
+        <Route path="/counter1" component={ConnectedCounter1} />
+        <Route path="/counter2" component={ConnectedCounter2} />
       </>
     </Router>
   );

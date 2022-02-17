@@ -5,4 +5,5 @@
 // import './advance/10.refs-回调refs-在组件间传递回调refs';
 // import './advance/12.refs-forwardRef-hoc中转发refs到类组件实例';
 // import './advance/14.hoc-反向继承';
-import './advance/13.refs-forwardRef-调用子函数组件内的方法';
+// import './advance/13.refs-forwardRef-调用子函数组件内的方法';
+import './advance/1.getSnapshotBeforeUpdate';
