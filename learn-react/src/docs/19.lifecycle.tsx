@@ -7,7 +7,7 @@ interface State {
 class Counter extends React.Component<Props, State> {
   // 他会比较两个状态相等就不会刷新视图 PureComponent是浅比较
   static defaultProps = {
-    name: '珠峰架构',
+    name: '珠峰架构'
   };
   constructor(props: Props) {
     super(props);
