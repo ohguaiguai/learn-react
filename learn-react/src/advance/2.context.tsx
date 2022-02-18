@@ -10,6 +10,7 @@ interface ContextProps<T> {
 }
 function createContext<T>(defaultValue: T) {
   interface State {}
+  // 是一个组件，接收一个value
   class Provider extends React.Component<ContextProps<T>, State> {
     static value: T = defaultValue;
     constructor(props: ContextProps<T>) {
