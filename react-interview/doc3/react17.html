@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    事件委托的对不再是document,而是挂载的容器了 1.
+    可以让一个页面可以使用多个react版本 。
+    <div id="root">
+      <div id="parent">
+        <p id="child">事件执行</p>
+      </div>
+    </div>
+
+    <script>
+      let root = document.getElementById('root');
+      let parent = document.getElementById('parent');
+      let child = document.getElementById('child');
+      //React的原生捕获 ，它是先注册的，它要先执行
+      root.addEventListener(
+        'click',
+        (event) => dispatchEvent(event, true),
+        true
+      ); //true=useCapture 注册一个捕获监听
+      root.addEventListener('click', (event) => dispatchEvent(event, false)); //冒泡
+
+      function dispatchEvent(event, useCapture) {
+        let paths = [];
+        let current = event.target;
+        while (current) {
+          paths.push(current);
+          current = current.parentNode;
+        }
+        //[child,parent,body]
+        //模拟捕获和冒泡，其实在这个时候，原生的捕获阶段已经结束 了
+        if (useCapture) {
+          for (let i = paths.length - 1; i >= 0; i--) {
+            let handler = paths[i].onClickCapture;
+            handler && handler();
+          }
+        } else {
+          for (let i = 0; i < paths.length; i++) {
+            let handler = paths[i].onClick;
+            handler && handler();
+          }
+        }
+      }
+      //注册React事件的事件委托
+
+      parent.addEventListener(
+        'click',
+        () => {
+          console.log('父元素原生捕获');
+        },
+        true
+      );
+      parent.addEventListener('click', () => {
+        console.log('父元素原生冒泡');
+      });
+      child.addEventListener(
+        'click',
+        () => {
+          console.log('子元素原生捕获');
+        },
+        true
+      );
+      child.addEventListener('click', () => {
+        console.log('子元素原生冒泡');
+      });
+      root.addEventListener(
+        'click',
+        () => {
+          console.log('root原生捕获');
+        },
+        true
+      );
+      //React会执行一个 document.addEventListener('click',dispatchEvent);
+      //这个注册是在React注册这后注册的，所以后执行
+      root.addEventListener('click', () => {
+        console.log('root原生冒泡');
+      });
+      parent.onClick = function () {
+        console.log('父元素React事件冒泡');
+      };
+      parent.onClickCapture = function () {
+        console.log('父元素React事件捕获');
+      };
+      child.onClick = function () {
+        console.log('子元素React事件冒泡');
+      };
+      child.onClickCapture = function () {
+        console.log('子元素React事件捕获');
+      };
+    </script>
+  </body>
+</html>

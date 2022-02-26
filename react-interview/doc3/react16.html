@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <p id="child">事件执行</p>
+    </div>
+    <script>
+      function dispatchEvent(event) {
+        let paths = [];
+        let current = event.target;
+        while (current) {
+          paths.push(current);
+          current = current.parentNode;
+        }
+        //[child,parent,body]
+        //模拟捕获 其实在这个时候，原生的捕获阶段已经结束 了
+        for (let i = paths.length - 1; i >= 0; i--) {
+          let handler = paths[i].onClickCapture;
+          handler && handler();
+        }
+        // 模拟冒泡
+        for (let i = 0; i < paths.length; i++) {
+          let handler = paths[i].onClick;
+          handler && handler();
+        }
+      }
+      //注册React事件的事件委托  冒泡
+      document.addEventListener('click', dispatchEvent);
+
+      let parent = document.getElementById('parent');
+      let child = document.getElementById('child');
+      parent.addEventListener(
+        'click',
+        () => {
+          console.log('父元素原生捕获');
+        },
+        true
+      );
+      parent.addEventListener('click', () => {
+        console.log('父元素原生冒泡');
+      });
+      child.addEventListener(
+        'click',
+        () => {
+          console.log('子元素原生捕获');
+        },
+        true
+      );
+      child.addEventListener('click', () => {
+        console.log('子元素原生冒泡');
+      });
+      document.addEventListener(
+        'click',
+        () => {
+          console.log('document原生捕获');
+        },
+        true
+      );
+
+      //React会执行一个 document.addEventListener('click',dispatchEvent);
+      //这个注册是在React注册这后注册的，所以后执行
+      document.addEventListener('click', () => {
+        console.log('document原生冒泡');
+      });
+      parent.onClick = function () {
+        console.log('父元素React事件冒泡');
+      };
+      parent.onClickCapture = function () {
+        console.log('父元素React事件捕获');
+      };
+      child.onClick = function () {
+        console.log('子元素React事件冒泡');
+      };
+      child.onClickCapture = function () {
+        console.log('子元素React事件捕获');
+      };
+    </script>
+  </body>
+</html>
