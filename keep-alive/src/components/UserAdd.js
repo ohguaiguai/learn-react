@@ -1,5 +1,6 @@
 import { useState } from 'react';
 const UserAdd = () => {
+  console.log('useradd render');
   const [number, setNumber] = useState(0);
   return (
     <div>
