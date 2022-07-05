@@ -46,6 +46,6 @@ class Panel extends React.Component<PanelProps> {
 }
 let panelProps: PanelProps = {
   headString: '我是头',
-  bodyString: '我是身体',
+  bodyString: '我是身体'
 };
 ReactDOM.render(<Panel {...panelProps} />, root);

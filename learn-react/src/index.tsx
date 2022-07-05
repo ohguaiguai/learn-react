@@ -6,4 +6,6 @@
 // import './advance/12.refs-forwardRef-hoc中转发refs到类组件实例';
 // import './advance/14.hoc-反向继承';
 // import './advance/13.refs-forwardRef-调用子函数组件内的方法';
-import './advance/1.getSnapshotBeforeUpdate';
+// import './advance/1.getSnapshotBeforeUpdate';
+// import './docs/21.createPotal';
+import './advance/2.context';
