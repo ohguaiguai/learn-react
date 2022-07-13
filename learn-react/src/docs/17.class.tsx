@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 interface Props {}
 class Form extends React.Component<Props> {
   textInput: React.RefObject<TextInput>;
@@ -30,7 +30,7 @@ class TextInput extends React.Component {
     this.input.current!.focus();
   };
   render() {
-    return <input type='text' ref={this.input} />;
+    return <input type="text" ref={this.input} />;
   }
 }
-ReactDOM.render(<Form />, document.getElementById('root')!);
+ReactDOM.render(<Form />, document.getElementById("root")!);

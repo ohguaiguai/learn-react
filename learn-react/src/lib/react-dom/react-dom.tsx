@@ -2,13 +2,13 @@ import React, {
   ReactElement,
   FunctionComponent,
   ClassComponent,
-} from '../react';
+} from "../react";
 //1. element={type:'h1',props:{className,style,children}}
 //render方法里的 typeof element类型判断有误
 //把 element 通过createElement方法里我们返回的是个对象呀
 function render(element: ReactElement, container: HTMLElement): any {
-  console.log('element', element);
-  if (typeof element.type == 'string') {
+  console.log("element", element);
+  if (typeof element.type == "string") {
     return container.appendChild(document.createTextNode(element.type));
   }
   let type: string | FunctionComponent | ClassComponent, props;
@@ -19,16 +19,16 @@ function render(element: ReactElement, container: HTMLElement): any {
     element = new (type as ClassComponent)(props).render()!;
     type = element.type;
     props = element.props;
-  } else if (typeof type === 'function') {
+  } else if (typeof type === "function") {
     element = (type as FunctionComponent)(props);
     type = element.type;
     props = element.props;
   }
   domElement = document.createElement(type as string);
   for (let propName in props) {
-    if (propName === 'className') {
+    if (propName === "className") {
       domElement.className = props[propName]; //处理类名
-    } else if (propName === 'style') {
+    } else if (propName === "style") {
       let styleObject: CSSStyleDeclaration = props.style; //{ color: 'red', fontSize: 25 };
       for (let attr in styleObject) {
         domElement.style[attr] = styleObject[attr];
@@ -40,7 +40,7 @@ function render(element: ReactElement, container: HTMLElement): any {
              }).join(';');//color:red;font-size:25
  
              domElement.style.cssText = cssText; */
-    } else if (propName === 'children') {
+    } else if (propName === "children") {
       props.children.forEach((child: any) => {
         render(child, domElement);
       });

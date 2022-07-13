@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 interface Props {}
 interface State {
   number: number;
@@ -33,4 +33,4 @@ class Clock extends React.Component<Props, State> {
     );
   }
 }
-ReactDOM.render(<Clock />, document.getElementById('root')!);
+ReactDOM.render(<Clock />, document.getElementById("root")!);

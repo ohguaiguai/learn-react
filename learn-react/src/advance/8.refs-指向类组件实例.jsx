@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 export class CustomTextInput extends React.Component {
   // 创建一个 ref 来存储 textInput 的 DOM 元素
-  textInput = React.createRef();
+  textDomInput = React.createRef();
 
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export class CustomTextInput extends React.Component {
   focusTextInput = () => {
     // 直接使用原生 API 使 text 输入框获得焦点
     // 注意：我们通过 "current" 来访问 DOM 节点
-    this.textInput.current?.focus();
+    this.textDomInput.current?.focus();
   };
 
   render() {
@@ -20,10 +20,10 @@ export class CustomTextInput extends React.Component {
     // 构造器里创建的 `textInput` 上
     return (
       <div>
-        <input type='text' ref={this.textInput} />
+        <input type="text" ref={this.textDomInput} />
         <input
-          type='button'
-          value='Focus the text input'
+          type="button"
+          value="Focus the text input"
           onClick={this.focusTextInput}
         />
       </div>
@@ -44,7 +44,4 @@ class AutoFocusTextInput extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <AutoFocusTextInput />,
-  document.getElementById('root')
-);
+ReactDOM.render(<AutoFocusTextInput />, document.getElementById("root"));

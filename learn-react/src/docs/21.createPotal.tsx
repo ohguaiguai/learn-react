@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 const Modal = ({ visible = false }) => {
   if (!visible) {
@@ -20,7 +20,7 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // 事件冒泡会正常工作 —— 通过将事件传播到 React 树的祖先，事件冒泡将按预期工作，而与 DOM 中的 Portal 节点位置无关。
 // React 可以控制 Portal 节点及其生命周期 — 当通过 Portal 渲染子元素时，React 仍然可以控制它们的生命周期。

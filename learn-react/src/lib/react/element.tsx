@@ -1,4 +1,4 @@
-import { ReactElement, FunctionComponent, ClassComponent } from '.';
+import { ReactElement, FunctionComponent, ClassComponent } from ".";
 /**
  *
  * @param type React元素的类型
@@ -23,13 +23,13 @@ function createElement(
         props.children = Array.prototype.slice.call(arguments, 2);
     } */
   props.children = children.map((child: ReactElement | string) => {
-    if (typeof child === 'string') {
+    if (typeof child === "string") {
       return createElement(child);
     } else {
       return child;
     }
   });
-  console.log('props.children', props.children);
+  console.log("props.children", props.children);
   let element: ReactElement = { type, props };
   return element;
 }

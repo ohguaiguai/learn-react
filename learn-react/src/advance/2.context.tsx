@@ -1,5 +1,5 @@
-import React, { RefObject } from 'react';
-import ReactDOM from 'react-dom';
+import React, { RefObject } from "react";
+import ReactDOM from "react-dom";
 //需要自上而下传递的上下文对象
 interface ContextValue {
   color: string;
@@ -40,12 +40,12 @@ function createContext<T>(defaultValue: T) {
   }
   return {
     Provider,
-    Consumer
+    Consumer,
   };
 }
 const ColorContext = createContext<ContextValue>({
-  color: '',
-  changeColor: (color: string) => {}
+  color: "",
+  changeColor: (color: string) => {},
 });
 
 //ColorContext = {Provider,Consumer}
@@ -98,8 +98,8 @@ class Content extends React.Component {
         {(value: ContextValue) => (
           <div style={{ border: `5px solid ${value.color}`, padding: 5 }}>
             Content
-            <button onClick={() => value.changeColor('red')}>变红</button>
-            <button onClick={() => value.changeColor('green')}>变绿</button>
+            <button onClick={() => value.changeColor("red")}>变红</button>
+            <button onClick={() => value.changeColor("green")}>变绿</button>
           </div>
         )}
       </ColorContext.Consumer>
@@ -115,7 +115,7 @@ interface PanelState {
 class Panel extends React.Component<PanelProps, PanelState> {
   constructor(props: PanelProps) {
     super(props);
-    this.state = { color: 'red' };
+    this.state = { color: "red" };
   }
   changeColor = (color: string) => {
     this.setState({ color });
@@ -123,7 +123,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
   render() {
     let contextValue: ContextValue = {
       color: this.state.color,
-      changeColor: this.changeColor
+      changeColor: this.changeColor,
     };
     return (
       <ColorContext.Provider value={contextValue}>
@@ -131,7 +131,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
           style={{
             border: `5px solid ${this.state.color}`,
             padding: 5,
-            width: 200
+            width: 200,
           }}
         >
           Panel
@@ -142,4 +142,4 @@ class Panel extends React.Component<PanelProps, PanelState> {
     );
   }
 }
-ReactDOM.render(<Panel />, document.getElementById('root'));
+ReactDOM.render(<Panel />, document.getElementById("root"));

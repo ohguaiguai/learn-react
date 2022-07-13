@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 interface Props {
   render: (value: State) => React.ReactNode;
 }
@@ -23,7 +23,7 @@ class MouseTracker extends Component<Props, State> {
     return (
       <div
         onMouseMove={this.handleMouseMove}
-        style={{ border: '1px solid red' }}
+        style={{ border: "1px solid red" }}
       >
         {this.props.render(this.state)}
       </div>
@@ -51,5 +51,5 @@ function withMouseTracker(OldComponent: React.FC<PropsFromState>) {
 const WithMouseTrackerMyComponent = withMouseTracker(MyComponent);
 ReactDOM.render(
   <WithMouseTrackerMyComponent />,
-  document.getElementById('root')
+  document.getElementById("root")
 );

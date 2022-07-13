@@ -1,4 +1,4 @@
-import { ClassComponent } from './react';
+import { ClassComponent } from "./react";
 export interface ReactElement {
   type: string | FunctionComponent | ClassComponent;
   props: any;

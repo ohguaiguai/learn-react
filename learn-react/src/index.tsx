@@ -8,4 +8,6 @@
 // import './advance/13.refs-forwardRef-调用子函数组件内的方法';
 // import './advance/1.getSnapshotBeforeUpdate';
 // import './docs/21.createPotal';
-import './advance/2.context';
+// import './advance/2.context';
+// import './advance/8.refs-指向类组件实例';
+import "./advance/10.refs-回调refs-在组件间传递回调refs获取子组件dom";

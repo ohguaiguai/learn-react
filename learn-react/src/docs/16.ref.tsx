@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 /**
  * ref提供了一种方式，让我们可以访问真实DOM节点，
  * 1. ref的值是一个字符串
@@ -74,4 +74,4 @@ class Sum extends React.Component {
     }
 } */
 
-ReactDOM.render(<Sum />, document.getElementById('root')!);
+ReactDOM.render(<Sum />, document.getElementById("root")!);

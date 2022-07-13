@@ -12,7 +12,9 @@ class FancyButton extends React.Component {
   }
 }
 
+// 生成一个组件
 function logProps(WrappedComponent) {
+  // 这是一个高阶组件
   class LogProps extends React.Component {
     componentDidUpdate(prevProps) {
       console.log('old props:', prevProps);

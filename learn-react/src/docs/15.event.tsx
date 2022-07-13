@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 /**
  * 事件处理的时候，特别注意this指针问题
  * 1.可以bind ,缺点是每次渲染都会产生一个新的函数
@@ -14,10 +14,10 @@ class VisitButton extends React.Component {
   };
   render() {
     return (
-      <button id='visit-btn' onClick={this.handleClick}>
+      <button id="visit-btn" onClick={this.handleClick}>
         点我吧
       </button>
     );
   }
 }
-ReactDOM.render(<VisitButton />, document.getElementById('root')!);
+ReactDOM.render(<VisitButton />, document.getElementById("root")!);

@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 interface Props {
   name: string;
 }
@@ -56,4 +56,4 @@ let SubCounter: React.FunctionComponent<SubCounterProps> = function (
     </div>
   );
 };
-ReactDOM.render(<Counter name='计数器' />, document.getElementById('root')!);
+ReactDOM.render(<Counter name="计数器" />, document.getElementById("root")!);

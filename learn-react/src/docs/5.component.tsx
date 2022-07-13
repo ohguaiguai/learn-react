@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-let root: HTMLElement | null = document.getElementById('root');
+import React from "react";
+import ReactDOM from "react-dom";
+let root: HTMLElement | null = document.getElementById("root");
 
 /**
  * 什么叫组件，如何定义组件
@@ -37,7 +37,7 @@ let Welcome3: React.ComponentClass<Props> = Welcome2;
  * 3. 调用Welcome2实例的render方法，获得返回的React元素
  * 4. 把返回的React元素渲染到界面上就可以了
  */
-ReactDOM.render(<Welcome3 name='zhufeng' />, root);
+ReactDOM.render(<Welcome3 name="zhufeng" />, root);
 /**
  * 1.React元素可以是DOM标签，也可以是用户自定义组件
  * 2. DOM标签首字母小写的，自定义组件首字母大写

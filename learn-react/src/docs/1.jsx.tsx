@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 /**
  * jsx就是js+xml(html) 是一种JS的扩展语法
  * jsx js extension js扩展
@@ -15,9 +15,9 @@ import ReactDOM from 'react-dom';
  * ReactDOM.render可以保证浏览器界面的显示和React元素保持一致
  * JSX属性和表达式
  */
-let ele = React.createElement('h1', null, 'Hello');
+let ele = React.createElement("h1", null, "Hello");
 console.log(ele); //{type:'h1',props:{children:'Hello'}}
-ReactDOM.render(ele, document.getElementById('root'));
+ReactDOM.render(ele, document.getElementById("root"));
 
 // jsx的执行过程
 

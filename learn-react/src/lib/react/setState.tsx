@@ -1,4 +1,4 @@
-import renderDOM from '../react-dom';
+import renderDOM from "../react-dom";
 
 const { render: renderComponent } = renderDOM;
 
@@ -35,7 +35,7 @@ function flush() {
     }
 
     // 如果stateChange是一个方法，也就是setState的第二种形式
-    if (typeof stateChange === 'function') {
+    if (typeof stateChange === "function") {
       Object.assign(
         component.state,
         stateChange(component.prevState, component.props)

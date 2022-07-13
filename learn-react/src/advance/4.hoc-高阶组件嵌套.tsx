@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 interface ComponentProps {
   value: string;
 }
@@ -13,7 +13,7 @@ const fromLocal = (
   OldComponent: React.FC<ComponentProps> | React.ComponentClass<ComponentProps>
 ) => {
   return class extends React.Component<ComponentProps, State> {
-    state = { value: '' };
+    state = { value: "" };
     componentDidMount() {
       let value = localStorage.getItem(this.props.value); //username=>zhangsan
       if (value) {
@@ -27,9 +27,9 @@ const fromLocal = (
 };
 const fromAjax = (OldComponent: React.FC<ComponentProps>) => {
   return class extends React.Component<ComponentProps, State> {
-    state = { value: '' }; // 张三
+    state = { value: "" }; // 张三
     componentDidMount() {
-      fetch('/name.json')
+      fetch("/name.json")
         .then((response) => response.json())
         .then((result) => {
           this.setState({
@@ -51,6 +51,6 @@ const FromAjaxUserName = fromAjax(UserName);
 //Argument of type 'typeof (Anonymous class)' is not assignable to parameter of type 'FunctionComponent<ComponentProps>'.
 const FromLocalUsername = fromLocal(FromAjaxUserName);
 ReactDOM.render(
-  <FromLocalUsername value='username' />,
-  document.getElementById('root')
+  <FromLocalUsername value="username" />,
+  document.getElementById("root")
 );

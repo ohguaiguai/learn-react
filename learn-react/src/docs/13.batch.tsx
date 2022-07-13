@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 interface Props {}
 interface State {
   number: number;
@@ -37,4 +37,4 @@ class Counter extends React.Component<Props, State> {
     );
   }
 }
-ReactDOM.render(<Counter />, document.getElementById('root')!);
+ReactDOM.render(<Counter />, document.getElementById("root")!);

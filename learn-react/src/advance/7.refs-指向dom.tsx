@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Props {}
 
@@ -21,10 +21,10 @@ export class CustomTextInput extends React.Component<Props> {
     // 构造器里创建的 `textInput` 上
     return (
       <div>
-        <input type='text' ref={this.textInput} />
+        <input type="text" ref={this.textInput} />
         <input
-          type='button'
-          value='Focus the text input'
+          type="button"
+          value="Focus the text input"
           onClick={this.focusTextInput}
         />
       </div>

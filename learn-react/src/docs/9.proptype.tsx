@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types'; //属性的类型
-let root: HTMLElement | null = document.getElementById('root');
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types"; //属性的类型
+let root: HTMLElement | null = document.getElementById("root");
 //属性校验 ，你要告诉使用你写的组件的人，如何传递属性
 interface PersonProps extends Record<string, any> {
   name?: string;
   age?: number;
-  gender?: 'male' | 'female';
+  gender?: "male" | "female";
   hobby?: Array<string>;
   position?: { x: number; y: number };
   // [propName: string]: any
@@ -16,11 +16,11 @@ interface PersonProps extends Record<string, any> {
  */
 class Person extends React.Component<PersonProps> {
   static defaultProps: PersonProps = {
-    name: '未名',
+    name: "未名",
   };
   static propTypes = {
     name: PropTypes.string.isRequired,
-    gender: PropTypes.oneOf(['male', 'female']).isRequired,
+    gender: PropTypes.oneOf(["male", "female"]).isRequired,
     hobby: PropTypes.arrayOf(PropTypes.string),
     position: PropTypes.shape({
       x: PropTypes.number,
@@ -56,9 +56,9 @@ class Person extends React.Component<PersonProps> {
   }
 }
 let personProps: PersonProps = {
-  gender: 'male',
+  gender: "male",
   age: 120,
-  hobby: ['football', 'basketball'],
+  hobby: ["football", "basketball"],
   position: { x: 100, y: 100 },
 };
 ReactDOM.render(<Person {...personProps} />, root);

@@ -1,5 +1,5 @@
-import React, { RefObject } from 'react';
-import ReactDOM from 'react-dom';
+import React, { RefObject } from "react";
+import ReactDOM from "react-dom";
 interface Props {}
 interface State {
   messages: Array<string>;
@@ -18,8 +18,8 @@ class ScrollList extends React.Component<Props, State> {
       this.setState({
         messages: [
           `message-${this.state.messages.length}`,
-          ...this.state.messages
-        ]
+          ...this.state.messages,
+        ],
       });
     }, 1000);
   }
@@ -45,8 +45,8 @@ class ScrollList extends React.Component<Props, State> {
     let style = {
       height: 100,
       width: 200,
-      border: '1px solid red',
-      overflow: 'auto'
+      border: "1px solid red",
+      overflow: "auto",
     };
     return (
       <div style={style} ref={this.wrapper}>
@@ -57,4 +57,4 @@ class ScrollList extends React.Component<Props, State> {
     );
   }
 }
-ReactDOM.render(<ScrollList />, document.getElementById('root'));
+ReactDOM.render(<ScrollList />, document.getElementById("root"));

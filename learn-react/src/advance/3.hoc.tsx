@@ -1,5 +1,5 @@
-import React, { RefObject } from 'react';
-import ReactDOM from 'react-dom';
+import React, { RefObject } from "react";
+import ReactDOM from "react-dom";
 /**
  * 高阶组件 来自于高阶函数
  * 高阶函数 就是函数可以作为方法的参数和返回值
@@ -15,7 +15,7 @@ function logger(OldComponent) {
       this.start = Date.now();
     }
     componentDidMount() {
-      console.log('组件渲染一共花了 ' + (Date.now() - this.start) + ' ms');
+      console.log("组件渲染一共花了 " + (Date.now() - this.start) + " ms");
     }
     render() {
       return <OldComponent />;
@@ -32,4 +32,4 @@ class Hello extends React.Component {
   }
 }
 let LoggerHello = logger(Hello);
-ReactDOM.render(<LoggerHello />, document.getElementById('root'));
+ReactDOM.render(<LoggerHello />, document.getElementById("root"));

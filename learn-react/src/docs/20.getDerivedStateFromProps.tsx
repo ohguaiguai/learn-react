@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 interface Props {}
 interface State {
   number: number;
@@ -61,4 +61,4 @@ class ChildCounter extends Component<ChildCounterProps> {
     return <div>{this.state.number}</div>;
   }
 }
-ReactDOM.render(<Counter />, document.getElementById('root'));
+ReactDOM.render(<Counter />, document.getElementById("root"));

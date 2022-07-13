@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 interface State {
   name: string;
@@ -16,7 +16,7 @@ export function HOC(WrappedComponent: React.ComponentClass) {
     constructor(props: Props) {
       super(props);
       this.state = {
-        name: '',
+        name: "",
       };
     }
 
@@ -47,4 +47,4 @@ class Input extends React.Component {
 
 const WithInput = HOC(Input);
 
-ReactDOM.render(<WithInput type='hoc' />, document.getElementById('root'));
+ReactDOM.render(<WithInput type="hoc" />, document.getElementById("root"));

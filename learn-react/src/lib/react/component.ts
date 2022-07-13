@@ -1,4 +1,4 @@
-import { ReactElement } from '../types';
+import { ReactElement } from "../types";
 
 export default class Component<P = any> {
   isReactComponent = true;

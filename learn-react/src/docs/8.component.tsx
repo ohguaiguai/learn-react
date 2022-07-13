@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-let root: HTMLElement | null = document.getElementById('root');
+import React from "react";
+import ReactDOM from "react-dom";
+let root: HTMLElement | null = document.getElementById("root");
 /**
  * 复合组件和提供组件
  *
@@ -38,7 +38,7 @@ class Head extends React.Component<HeadProps> {
     //Cannot assign to 'headString' because it is a read-only property
     //this.props.headString = '新的headString';
     return (
-      <div style={{ border: '1px solid green', padding: 5 }}>
+      <div style={{ border: "1px solid green", padding: 5 }}>
         {this.props.headString}
       </div>
     );
@@ -47,7 +47,7 @@ class Head extends React.Component<HeadProps> {
 class Body extends React.Component<BodyProps> {
   render(): React.ReactElement {
     return (
-      <div style={{ border: '1px solid blue', padding: 5 }}>
+      <div style={{ border: "1px solid blue", padding: 5 }}>
         {this.props.bodyString}
       </div>
     );
@@ -57,7 +57,7 @@ class Panel extends React.Component<PanelProps> {
   render(): React.ReactElement {
     let { headString, bodyString } = this.props;
     return (
-      <div style={{ border: '1px solid red', padding: 5 }}>
+      <div style={{ border: "1px solid red", padding: 5 }}>
         <Head headString={headString} />
         <Body bodyString={bodyString} />
       </div>
@@ -65,8 +65,8 @@ class Panel extends React.Component<PanelProps> {
   }
 }
 let panelProps: PanelProps = {
-  headString: '我是头',
-  bodyString: '我是身体',
+  headString: "我是头",
+  bodyString: "我是身体",
 };
 //把panelProps的所有的属性全部传给Panel组件
 ReactDOM.render(<Panel {...panelProps} />, root);
